@@ -1,0 +1,1 @@
+This folder is for static assets (images, fonts). Add files here and reference them from the app.
