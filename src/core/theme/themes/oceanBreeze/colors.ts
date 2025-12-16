@@ -35,6 +35,8 @@ export interface ColorPalette {
   overlay: string;
   overlayDark: string;
   headerSubtitle: string;
+  disclaimerTitle: string;
+  hadithQuote: string;
 }
 
 export const lightColors: ColorPalette = {
@@ -44,7 +46,9 @@ export const lightColors: ColorPalette = {
   mediumGreen: '#0288D1',
   brightGreen: '#0097A7',
   accentGold: '#D4AF37',
-  headerSubtitle: '#0d4585ff',
+  headerSubtitle: '#0b40a1ff',
+  disclaimerTitle: '#01579B',
+  hadithQuote: '#01579B',
   lightGold: '#FFD700',
   softWhite: '#FEFEFE',
   cream: '#E0F7FA',
@@ -74,11 +78,13 @@ export const lightColors: ColorPalette = {
 export const darkColors: ColorPalette = {
   primaryGreen: '#0288D1',
   primaryGreenDark: '#01579B',
+  headerSubtitle: '#01579B',
+  disclaimerTitle: '#f8f8f8ff',
+  hadithQuote: '#f8f8f8ff',
   lightGreen: '#03A9F4',
   mediumGreen: '#0288D1',
   brightGreen: '#0097A7',
   accentGold: '#D4AF37',
-  headerSubtitle: '#0288D1',
   lightGold: '#FFD700',
   softWhite: '#1A1A1A',
   cream: '#1E1E1E',
@@ -98,11 +104,12 @@ export const darkColors: ColorPalette = {
   surfaceLight: '#2C2C2C',
   arabicText: '#0288D1',
   translationText: '#BDBDBD',
-  verseHighlight: '#01579B',
+  verseHighlight: '#1f6ca7ff',
   bookmarkColor: '#D4AF37',
   overlay: 'rgba(0, 0, 0, 0.7)',
   overlayDark: 'rgba(0, 0, 0, 0.85)',
   textSecondary: '#9e9e9e'
+  
 };
 
 export const getColors = (isDark: boolean): ColorPalette => {

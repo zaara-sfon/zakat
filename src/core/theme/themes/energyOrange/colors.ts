@@ -7,6 +7,8 @@ export interface ColorPalette {
   textSecondary: number | ColorValue | undefined;
   primaryGreen: string;
   primaryGreenDark: string;
+  disclaimerTitle: string;
+  hadithQuote: string;
   lightGreen: string;
   mediumGreen: string;
   brightGreen: string;
@@ -45,7 +47,9 @@ export const lightColors: ColorPalette = {
   brightGreen: '#FFA726',
   accentGold: '#D4AF37',
   lightGold: '#FFD700',
-  headerSubtitle: '#BF360C',
+  headerSubtitle: '#b44f0bff',
+  disclaimerTitle: '#f57c00',
+  hadithQuote: '#f57c00',
   softWhite: '#FEFEFE',
   cream: '#FFF8E1',
   white: '#FFFFFF',
@@ -74,12 +78,14 @@ export const lightColors: ColorPalette = {
 export const darkColors: ColorPalette = {
   primaryGreen: '#FF9800',
   primaryGreenDark: '#F57C00',
+  disclaimerTitle: 'rgba(19, 18, 17, 0.86)',
+  hadithQuote: 'rgba(12, 12, 11, 0.86)', 
   lightGreen: '#FFB74D',
-  mediumGreen: '#FF9800',
+  mediumGreen: '#FF9800', 
   brightGreen: '#FFA726',
   accentGold: '#D4AF37',
   lightGold: '#FFD700',
-  headerSubtitle: '#f0f',
+  headerSubtitle: 'rgba(17, 16, 16, 0.86)',
   softWhite: '#121212',
   cream: '#1E1E1E',
   white: '#FFFFFF',
@@ -87,7 +93,7 @@ export const darkColors: ColorPalette = {
   borderGray: '#3A3A3A',
   textDark: '#FFFFFF',
   textMedium: '#E0E0E0',
-  textLight: '#B0B0B0',
+  textLight: '#0a0a0aff',
   liveRed: '#EF5350',
   errorColor: '#F44336',
   successGreen: '#66BB6A',
@@ -98,7 +104,7 @@ export const darkColors: ColorPalette = {
   surfaceLight: '#2C2C2C',
   arabicText: '#FFA726',
   translationText: '#BDBDBD',
-  verseHighlight: '#E65100',
+  verseHighlight: '#fd9800ff',
   bookmarkColor: '#FFA726',
   overlay: 'rgba(0, 0, 0, 0.7)',
   overlayDark: 'rgba(0, 0, 0, 0.85)',

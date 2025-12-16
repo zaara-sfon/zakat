@@ -35,6 +35,8 @@ export interface ColorPalette {
   overlay: string;
   overlayDark: string;
   headerSubtitle: string;
+  disclaimerTitle: string;
+  hadithQuote: string;
 }
 
 export const lightColors: ColorPalette = {
@@ -45,6 +47,8 @@ export const lightColors: ColorPalette = {
   brightGreen: '#64748B',
   accentGold: '#60A5FA',
   headerSubtitle: '#93C5FD',
+  disclaimerTitle: '#0F172A',
+  hadithQuote: '#0F172A',
   lightGold: '#93C5FD',
   softWhite: '#F8FAFC',
   cream: '#F1F5F9',
@@ -79,6 +83,8 @@ export const darkColors: ColorPalette = {
   brightGreen: '#64748B',
   accentGold: '#60A5FA',
   headerSubtitle: '#6cb1ffff',
+  disclaimerTitle: '#93C5FD',
+  hadithQuote: '#93C5FD',
   lightGold: '#93C5FD',
   softWhite: '#0F172A',
   cream: '#1A202C',

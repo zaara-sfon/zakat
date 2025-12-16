@@ -34,11 +34,17 @@ export interface ColorPalette {
   bookmarkColor: string;
   overlay: string;
   overlayDark: string;
+  headerSubtitle: string;
+  disclaimerTitle: string;
+  hadithQuote: string;
 }
 
 export const lightColors: ColorPalette = {
   primaryGreen: '#FF7043',
   primaryGreenDark: '#D81B60',
+  headerSubtitle: '#ffcc24ff',
+  disclaimerTitle: '#D81B60',
+  hadithQuote: '#D81B60',
   lightGreen: '#FF8A65',
   mediumGreen: '#FF7043',
   brightGreen: '#FF6E40',
@@ -73,6 +79,9 @@ export const darkColors: ColorPalette = {
   primaryGreen: '#FF7043',
   primaryGreenDark: '#D81B60',
   lightGreen: '#FF8A65',
+  headerSubtitle: '#ffcc24ff',
+  disclaimerTitle: '#e4dfe1ff',
+  hadithQuote: '#e4dfe1ff',
   mediumGreen: '#FF7043',
   brightGreen: '#FF6E40',
   accentGold: '#D4AF37',
@@ -94,8 +103,8 @@ export const darkColors: ColorPalette = {
   cardBackground: '#1E1E1E',
   surfaceLight: '#2C2C2C',
   arabicText: '#FF8A65',
-  translationText: '#BDBDBD',
-  verseHighlight: '#BF360C',
+  translationText: '#ffffffff',
+  verseHighlight: '#e95528ff',
   bookmarkColor: '#D4AF37',
   overlay: 'rgba(0, 0, 0, 0.7)',
   overlayDark: 'rgba(0, 0, 0, 0.85)',

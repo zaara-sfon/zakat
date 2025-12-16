@@ -34,11 +34,17 @@ export interface ColorPalette {
   bookmarkColor: string;
   overlay: string;
   overlayDark: string;
+  headerSubtitle: string;
+  disclaimerTitle: string;
+  hadithQuote: string;
 }
 
 export const lightColors: ColorPalette = {
   primaryGreen: '#FF6B35',
   primaryGreenDark: '#E63946',
+  headerSubtitle: '#f7c00bff',
+  disclaimerTitle: '#E63946',
+  hadithQuote: '#E63946',
   lightGreen: '#FF8C42',
   mediumGreen: '#FF6B35',
   brightGreen: '#FFA94D',
@@ -72,6 +78,9 @@ export const lightColors: ColorPalette = {
 export const darkColors: ColorPalette = {
   primaryGreen: '#FF6B35',
   primaryGreenDark: '#E63946',
+  headerSubtitle: '#f7c00bff',
+  disclaimerTitle: '#E63946',
+  hadithQuote: '#E63946',
   lightGreen: '#FF8C42',
   mediumGreen: '#FF6B35',
   brightGreen: '#FFA94D',
