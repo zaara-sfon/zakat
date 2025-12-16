@@ -6,6 +6,25 @@ import { useColorScheme } from 'react-native';
 import { Theme, createThemeForName } from './index';
 import { ThemeName, DEFAULT_THEME } from './themes';
 
+// Map legacy theme keys to their corresponding folder-name keys
+const LEGACY_THEME_MAP: Record<string, ThemeName> = {
+  energyOrange: 'CosmicOrange',
+  naturePro: 'LightGreen',
+  boldImpact: 'Red',
+  creativeSunset: 'SunsetOrange',
+  oceanBreeze: 'OceanBlue',
+  calmPastel: 'Pastel',
+  earthyWarm: 'Earthy',
+};
+
+const normalizeThemeName = (name?: string): ThemeName => {
+  if (!name) return DEFAULT_THEME;
+  if ((LEGACY_THEME_MAP as Record<string, ThemeName>)[name]) {
+    return (LEGACY_THEME_MAP as Record<string, ThemeName>)[name];
+  }
+  return name as ThemeName;
+};
+
 const THEME_MODE_STORAGE_KEY = '@app_theme_mode';
 const THEME_NAME_STORAGE_KEY = '@app_theme_name';
 
@@ -69,7 +88,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
       }
       
       if (savedName) {
-        setThemeNameState(savedName as ThemeName);
+        setThemeNameState(normalizeThemeName(savedName));
       }
     } catch (error) {
       console.error('Failed to load theme preferences:', error);
@@ -89,8 +108,9 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
 
   const setThemeName = async (name: ThemeName) => {
     try {
-      await AsyncStorage.setItem(THEME_NAME_STORAGE_KEY, name);
-      setThemeNameState(name);
+      const normalized = normalizeThemeName(name as string);
+      await AsyncStorage.setItem(THEME_NAME_STORAGE_KEY, normalized);
+      setThemeNameState(normalized);
     } catch (error) {
       console.error('Failed to save theme name:', error);
     }

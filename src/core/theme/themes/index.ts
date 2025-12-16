@@ -29,18 +29,18 @@ import { createGradients as createMidnightGradientGradients } from './midnightGr
 export type ColorPalette = OriginalColorPalette | EnergyOrangeColorPalette | NatureProColorPalette | BoldImpactColorPalette | CreativeSunsetColorPalette | OceanBreezeColorPalette | CalmPastelColorPalette | EarthyWarmColorPalette | SunsetGradientColorPalette | AuroraGradientColorPalette | OceanGradientColorPalette | MidnightGradientColorPalette;
 
 export type ThemeName = 
-  | 'original' 
-  | 'CosmicOrange' 
-  | 'LightGreen' 
+  | 'original'
+  | 'CosmicOrange'
+  | 'LightGreen'
   | 'Red'
+  | 'SunsetOrange'
+  | 'OceanBlue'
+  | 'Pastel'
+  | 'Earthy'
   | 'sunsetGradient'
   | 'auroraGradient'
   | 'oceanGradient'
-  | 'midnightGradient' 
-  | 'SunsetOrange' 
-  | 'OceanBlue'  
-  | 'Pastel' 
-  | 'Earthy';
+  | 'midnightGradient';
 
 export interface ThemeDefinition {
   name: ThemeName;

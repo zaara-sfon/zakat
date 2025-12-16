@@ -78,7 +78,7 @@ export const lightColors: ColorPalette = {
 export const darkColors: ColorPalette = {
   primaryGreen: '#FF6B35',
   primaryGreenDark: '#E63946',
-  headerSubtitle: '#f7c00bff',
+  headerSubtitle: '#f7db82ff',
   disclaimerTitle: '#E63946',
   hadithQuote: '#E63946',
   lightGreen: '#FF8C42',

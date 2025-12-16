@@ -53,26 +53,22 @@ export const ThemeSelectorScreen: React.FC = () => {
           </View>
         )}
 
-        {/* Color Preview */}
+        {/* Color Preview (use gradients) */}
         <View style={styles.colorPreview}>
-          <View
-            style={[
-              styles.colorBox,
-              { backgroundColor: themeColors.primaryGreen },
-            ]}
-          />
-          <View
-            style={[
-              styles.colorBox,
-              { backgroundColor: themeColors.accentGold },
-            ]}
-          />
-          <View
-            style={[
-              styles.colorBox,
-              { backgroundColor: themeColors.textDark },
-            ]}
-          />
+          {(() => {
+            const gradients = item.createGradients(themeColors);
+            const previews = [gradients.primary, gradients.gold, gradients.soft];
+            return previews.map((g, idx) => (
+              <LinearGradient
+                key={idx}
+                colors={g.colors as readonly [string, string, ...string[]]}
+                start={g.start}
+                end={g.end}
+                locations={g.locations}
+                style={styles.colorBox}
+              />
+            ));
+          })()}
         </View>
 
         {/* Theme Name */}
