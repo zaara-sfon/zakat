@@ -2,26 +2,26 @@
 // Central theme definitions and exports
 
 import { ColorPalette as OriginalColorPalette, getColors as getOriginalColors } from './original/colors';
-import { ColorPalette as EnergyOrangeColorPalette, getColors as getEnergyOrangeColors } from './energyOrange/colors';
-import { ColorPalette as NatureProColorPalette, getColors as getNatureProColors } from './naturePro/colors';
-import { ColorPalette as BoldImpactColorPalette, getColors as getBoldImpactColors } from './boldImpact/colors';
-import { ColorPalette as CreativeSunsetColorPalette, getColors as getCreativeSunsetColors } from './creativeSunset/colors';
-import { ColorPalette as OceanBreezeColorPalette, getColors as getOceanBreezeColors } from './oceanBreeze/colors';
-import { ColorPalette as CalmPastelColorPalette, getColors as getCalmPastelColors } from './calmPastel/colors';
-import { ColorPalette as EarthyWarmColorPalette, getColors as getEarthyWarmColors } from './earthyWarm/colors';
+import { ColorPalette as EnergyOrangeColorPalette, getColors as getEnergyOrangeColors } from './CosmicOrange/colors';
+import { ColorPalette as NatureProColorPalette, getColors as getNatureProColors } from './LightGreen/colors';
+import { ColorPalette as BoldImpactColorPalette, getColors as getBoldImpactColors } from './Red/colors';
+import { ColorPalette as CreativeSunsetColorPalette, getColors as getCreativeSunsetColors } from './SunsetOrange/colors';
+import { ColorPalette as OceanBreezeColorPalette, getColors as getOceanBreezeColors } from './OceanBlue/colors';
+import { ColorPalette as CalmPastelColorPalette, getColors as getCalmPastelColors } from './Pastel/colors';
+import { ColorPalette as EarthyWarmColorPalette, getColors as getEarthyWarmColors } from './Earthy/colors';
 import { ColorPalette as SunsetGradientColorPalette, getColors as getSunsetGradientColors } from './sunsetGradient/colors';
 import { ColorPalette as AuroraGradientColorPalette, getColors as getAuroraGradientColors } from './auroraGradient/colors';
 import { ColorPalette as OceanGradientColorPalette, getColors as getOceanGradientColors } from './oceanGradient/colors';
 import { ColorPalette as MidnightGradientColorPalette, getColors as getMidnightGradientColors } from './midnightGradient/colors';
 
 import { createGradients as createOriginalGradients } from './original/gradients';
-import { createGradients as createEnergyOrangeGradients } from './energyOrange/gradients';
-import { createGradients as createNatureProGradients } from './naturePro/gradients';
-import { createGradients as createBoldImpactGradients } from './boldImpact/gradients';
-import { createGradients as createCreativeSunsetGradients } from './creativeSunset/gradients';
-import { createGradients as createOceanBreezeGradients } from './oceanBreeze/gradients';
-import { createGradients as createCalmPastelGradients } from './calmPastel/gradients';
-import { createGradients as createEarthyWarmGradients } from './earthyWarm/gradients';
+import { createGradients as createEnergyOrangeGradients } from './CosmicOrange/gradients';
+import { createGradients as createNatureProGradients } from './LightGreen/gradients';
+import { createGradients as createBoldImpactGradients } from './Red/gradients';
+import { createGradients as createCreativeSunsetGradients } from './SunsetOrange/gradients';
+import { createGradients as createOceanBreezeGradients } from './OceanBlue/gradients';
+import { createGradients as createCalmPastelGradients } from './Pastel/gradients';
+import { createGradients as createEarthyWarmGradients } from './Earthy/gradients';
 import { createGradients as createSunsetGradientGradients } from './sunsetGradient/gradients';
 import { createGradients as createAuroraGradientGradients } from './auroraGradient/gradients';
 import { createGradients as createOceanGradientGradients } from './oceanGradient/gradients';
@@ -30,17 +30,17 @@ export type ColorPalette = OriginalColorPalette | EnergyOrangeColorPalette | Nat
 
 export type ThemeName = 
   | 'original' 
-  | 'energyOrange' 
-  | 'naturePro' 
-  | 'boldImpact'
+  | 'CosmicOrange' 
+  | 'LightGreen' 
+  | 'Red'
   | 'sunsetGradient'
   | 'auroraGradient'
   | 'oceanGradient'
   | 'midnightGradient' 
-  | 'creativeSunset' 
-  | 'oceanBreeze'  
-  | 'calmPastel' 
-  | 'earthyWarm';
+  | 'SunsetOrange' 
+  | 'OceanBlue'  
+  | 'Pastel' 
+  | 'Earthy';
 
 export interface ThemeDefinition {
   name: ThemeName;
@@ -56,45 +56,45 @@ export const themes: Record<ThemeName, ThemeDefinition> = {
     getColors: getOriginalColors,
     createGradients: createOriginalGradients,
   },
-  energyOrange: {
-    name: 'energyOrange',
+  CosmicOrange: {
+    name: 'CosmicOrange',
     displayName: 'Cosmic Orange',
     getColors: getEnergyOrangeColors,
     createGradients: createEnergyOrangeGradients,
   },
-  naturePro: {
-    name: 'naturePro',
+  LightGreen: {
+    name: 'LightGreen',
     displayName: 'Light Green',
     getColors: getNatureProColors,
     createGradients: createNatureProGradients,
   },
-  boldImpact: {
-    name: 'boldImpact',
+  Red: {
+    name: 'Red',
     displayName: 'Red',
     getColors: getBoldImpactColors,
     createGradients: createBoldImpactGradients,
   },
-  creativeSunset: {
-    name: 'creativeSunset',
+  SunsetOrange: {
+    name: 'SunsetOrange',
     displayName: 'Sunset Orange',
     getColors: getCreativeSunsetColors,
     createGradients: createCreativeSunsetGradients,
   },
-  oceanBreeze: {
-    name: 'oceanBreeze',
+  OceanBlue: {
+    name: 'OceanBlue',
     displayName: 'Ocean Blue',
     getColors: getOceanBreezeColors,
     createGradients: createOceanBreezeGradients,
   },
 
-  calmPastel: {
-    name: 'calmPastel',
+  Pastel: {
+    name: 'Pastel',
     displayName: 'Pastel',
     getColors: getCalmPastelColors,
     createGradients: createCalmPastelGradients,
   },
-  earthyWarm: {
-    name: 'earthyWarm',
+  Earthy: {
+    name: 'Earthy',
     displayName: 'Earthy',
     getColors: getEarthyWarmColors,
     createGradients: createEarthyWarmGradients,
