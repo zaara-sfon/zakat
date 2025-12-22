@@ -34,4 +34,17 @@ Notes:
 - `src/App.tsx` — main app component
 - `.gitignore`
 
-If you want, I can run `npm install` and start the dev server for you, or tune the Expo SDK versions to the latest available. What would you like next?
+
+
+
+```mermaid
+flowchart LR
+A[Discover: Search medicine/test/doctor] --> B[Evaluate: substitutes, prices, info]
+B --> C[Upload Rx / Select test / Choose doctor]
+C --> D[Validation: pharmacist checks | lab slot check | doctor availability]
+D --> E[Fulfillment: local pharmacy dispatch | phlebotomist home collection | e-consult]
+E --> F[Deliverables: meds delivered | doctor-verified report | e-prescription]
+F --> G[Support: chat, follow-ups, reminders, offers]
+G --> H[Retention: auto-refill, packages, care plans]
+```
+
