@@ -224,8 +224,8 @@ export function ZakatCalculator(): React.JSX.Element {
   const goldPrice = parseNumber(goldPricePerGram);
   const silverPrice = parseNumber(silverPricePerGram);
 
-  const DEFAULT_GOLD_PRICE_PER_GRAM = 60;
-  const DEFAULT_SILVER_PRICE_PER_GRAM = 0.8;
+  const DEFAULT_GOLD_PRICE_PER_GRAM = 0;
+  const DEFAULT_SILVER_PRICE_PER_GRAM = 0;
 
   const goldNisabThreshold = goldPrice > 0 ? 87.48 * goldPrice : Number.POSITIVE_INFINITY;
   const silverNisabThreshold = silverPrice > 0 ? 612.36 * silverPrice : Number.POSITIVE_INFINITY;
@@ -251,6 +251,17 @@ export function ZakatCalculator(): React.JSX.Element {
 
   const isWealthAboveNisab = nisabThreshold > 0 ? netTotal >= nisabThreshold : false;
   const zakatAmount = isWealthAboveNisab ? netTotal * 0.025 : 0;
+
+  // Silver-based cash-in-hand nisab (used for Cash in Hand threshold card)
+  const currentSilverPrice = silverPrice > 0 ? silverPrice : DEFAULT_SILVER_PRICE_PER_GRAM;
+  const silverBasedCashNisabValue = 612.36 * currentSilverPrice;
+  const cashInHandValue = parseNumber(cashInHand);
+  const bankBalanceValue = parseNumber(bankBalance);
+  
+  // Use total Cash & Property (includes cash, bank, investments, receivables, property, other assets)
+  const combinedCashPropertyValue = cashPropertyTotal;
+  const combinedMeetsSilverNisab = combinedCashPropertyValue >= silverBasedCashNisabValue;
+  const cashInHandMeetsSilverNisab = cashInHandValue >= silverBasedCashNisabValue;
 
   const currencySymbols: Record<CurrencyType, string> = {
     USD: '$',
@@ -643,6 +654,38 @@ export function ZakatCalculator(): React.JSX.Element {
           </View>
         </View>
 
+        {/* Silver price card (moved here after Gold & Silver) */}
+        <View style={styles.card}>
+          <View style={styles.formGroup}>
+            <Text style={styles.cardTitle}>Silver price per gram</Text>
+            <TextInput
+              style={styles.input}
+              value={silverPricePerGram}
+              onChangeText={setSilverPricePerGram}
+              placeholder="Enter current silver price per g"
+              placeholderTextColor={theme.colors.textLight}
+              keyboardType="decimal-pad"
+            />
+          </View>
+
+          <View style={styles.summaryRow}>
+            <Text style={styles.summaryValue}>This price is used to calculate the silver-based nisab threshold.</Text>
+          </View>
+
+          <View style={styles.actionRow}>
+            <TouchableOpacity
+              style={styles.resetBtn}
+              onPress={() => {
+                setSilverPricePerGram('');
+              }}
+            >
+              <Text style={styles.resetBtnText}>Clear Price</Text>
+            </TouchableOpacity>
+
+            <Text style={styles.totalText}>{/* empty placeholder to align */}</Text>
+          </View>
+        </View>
+
         {/* Cash & Property Section */}
         <View style={styles.card}>
           <Text style={styles.cardTitle}>Cash & Property Assets</Text>
@@ -657,6 +700,11 @@ export function ZakatCalculator(): React.JSX.Element {
               placeholderTextColor={theme.colors.textLight}
               keyboardType="decimal-pad"
             />
+            {/* show threshold under cash input */}
+            <View style={styles.summaryRow}>
+              <Text style={styles.summaryLabel}>Cash Nisab based on Silver Nisab </Text>
+              <Text style={styles.summaryValue}>{getCurrencySymbol(currency)}{formatCurrency(silverBasedCashNisabValue)}</Text>
+            </View>
           </View>
 
           <View style={styles.formGroup}>
@@ -720,6 +768,20 @@ export function ZakatCalculator(): React.JSX.Element {
               placeholderTextColor={theme.colors.textLight}
               keyboardType="decimal-pad"
             />
+          
+          </View>
+          {!combinedMeetsSilverNisab && (
+            <Text style={styles.warningText}>
+              Total Cash & Property is below the silver-based nisab of {getCurrencySymbol(currency)}{formatCurrency(silverBasedCashNisabValue)}
+            </Text>
+          )}
+
+        {/* show combined total (cash & property) and warn while entering amounts */}
+          <View style={styles.summaryRow}>
+            <Text style={styles.summaryLabel}>Total Cash & Property</Text>
+            <Text style={[styles.summaryValue, combinedMeetsSilverNisab ? styles.summaryValueBold : styles.negativeText]}>
+              {getCurrencySymbol(currency)}{formatCurrency(combinedCashPropertyValue)}
+            </Text>
           </View>
 
           <View style={styles.actionRow}>
